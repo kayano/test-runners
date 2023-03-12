@@ -3,8 +3,15 @@ on:
   push:
     branches:
       - main
+      
+concurrency: ci-${{ github.ref }}
+
 jobs:
   check-bats-version:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
+      - name: Terraform fmt
+        id: fmt
+        run: |
+          echo "terraform fmt -check -recursive -diff"
