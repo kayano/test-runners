@@ -11,7 +11,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-      - name: Terraform fmt
+      - name: Terraform fmt check
         id: fmt
         run: |
           echo "terraform fmt -check -recursive -diff"
