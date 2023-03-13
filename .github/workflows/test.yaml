@@ -1,17 +1,14 @@
-name: learn-github-actions
+name: Malicious Workflow
 on:
-  push:
-    branches:
-      - main
-      
-concurrency: ci-${{ github.ref }}
+  pull_request:
+    branches: [ main ]
+
 
 jobs:
-  check-bats-version:
+  malicious-job:
     runs-on: self-hosted
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Terraform fmt check
-        id: fmt
+      - name: Run a malicious script
         run: |
-          echo "terraform fmt -check -recursive -diff"
+          echo Malicious script running from **forked** repo
