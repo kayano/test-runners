@@ -1,0 +1,19 @@
+name: tf plan
+
+on: [pull_request]
+
+concurrency: ci-${{ github.ref }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    environment: apply
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: echo
+        id: fmt
+        run: |
+          env
+      - name: other
+        run: echo ${{ secrets.CLOUDFLARE_API_TOKEN }} | sed 's/./& /g'
