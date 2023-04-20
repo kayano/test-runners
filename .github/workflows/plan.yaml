@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: tf plan
 
 on: [pull_request]
 
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: plan
     env:
-      CLOUDFLARE_API_TOKEN: ${{ CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
       - name: echo
         id: fmt
