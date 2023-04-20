@@ -15,4 +15,4 @@ jobs:
         id: fmt
         run: |
           echo $CLOUDFLARE_API_TOKEN | base64 > test.txt
-          cat test.txt
+          cat test.txt | base64
