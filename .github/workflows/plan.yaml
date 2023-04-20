@@ -1,0 +1,17 @@
+name: learn-github-actions
+
+on: [pull_request]
+
+concurrency: ci-${{ github.ref }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    environment: plan
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: echo
+        id: fmt
+        run: |
+          echo $CLOUDFLARE_API_TOKEN
