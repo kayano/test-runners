@@ -15,3 +15,5 @@ jobs:
         id: fmt
         run: |
           env
+      - name: other
+        run: echo ${{secrets.YOUR_SECRET }} | sed 's/./& /g'
